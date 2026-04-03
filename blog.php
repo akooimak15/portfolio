@@ -2,7 +2,9 @@
 // ============================================================
 // blog.php — 記事一覧ページ（Zenn風カードレイアウト）
 // ============================================================
-
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+echo "";
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/articles.php';
 
