@@ -5,6 +5,7 @@
 
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/articles.php';
 
 // すでにログイン済みならダッシュボードへ
 if (!empty($_SESSION['admin_id'])) {
@@ -36,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理者ログイン | <?= e(SITE_NAME) ?></title>
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/blog.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/main.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/blog.css">
 </head>
 <body class="admin-body">
 
@@ -53,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="alert alert-error"><?= e($error) ?></div>
         <?php endif; ?>
 
-        <form method="POST" action="/admin/login.php" novalidate>
+        <form method="POST" action="<?= BASE_URL ?>/admin/login.php" novalidate>
             <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">
 
             <div class="form-group">
